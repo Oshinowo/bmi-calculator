@@ -36,6 +36,7 @@ class _InputPageState extends State<InputPage> {
   // }
 
   int height = 180;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -116,18 +117,27 @@ class _InputPageState extends State<InputPage> {
                   ),
                   SizedBox(
                     width: 300.0,
-                    child: Slider(
-                      value: height.toDouble(),
-                      min: 120,
-                      max: 220,
-                      onChanged: (double newValue) {
-                        setState(() {
-                          height = newValue.round();
-                          print(height);
-                        });
-                      },
-                      activeColor: Color(0xffeb1555),
-                      inactiveColor: Colors.grey,
+                    child: SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                          activeTrackColor: Colors.white,
+                          inactiveTrackColor: Colors.grey,
+                          thumbColor: Color(0xffeb1555),
+                          thumbShape:
+                              RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 25.0),
+                          overlayColor: Color(0x29eb1555)),
+                      child: Slider(
+                        value: height.toDouble(),
+                        min: 120,
+                        max: 220,
+                        onChanged: (double newValue) {
+                          setState(() {
+                            height = newValue.round();
+                            // print(height);
+                          });
+                        },
+                      ),
                     ),
                   ),
                 ],
@@ -140,6 +150,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     colour: kActiveCardColour,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kHeavyHeightFont,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
