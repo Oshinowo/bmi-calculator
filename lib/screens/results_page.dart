@@ -1,11 +1,20 @@
-import 'package:bmi_calculator/reusable_card.dart';
+import 'file:///C:/Users/OSHINOWO/Desktop/apps/bmi_calculator/lib/components/reusable_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'calculate_container_button.dart';
-import 'constants.dart';
+import '../components/calculate_container_button.dart';
+import '../components/constants.dart';
 
 class ResultPage extends StatelessWidget {
+  ResultPage(
+      {@required this.calculateBMI,
+      @required this.getResult,
+      @required this.interpretation});
+
+  final String calculateBMI;
+  final String getResult;
+  final String interpretation;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,15 +40,15 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Normal',
+                      getResult,
                       style: kTextResultHeading,
                     ),
                     Text(
-                      '18.5',
+                      calculateBMI,
                       style: kBMIResult,
                     ),
                     Text(
-                      'Your BMI result is quite low, you should eat more',
+                      interpretation,
                       style: kBodyTextStyle,
                       textAlign: TextAlign.center,
                     )
