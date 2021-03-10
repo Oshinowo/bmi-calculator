@@ -15,3 +15,18 @@ const kHeavyHeightFont = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
 );
+
+const kTextResultHeading = TextStyle(
+  color: Colors.green,
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBMIResult = TextStyle(
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBodyTextStyle = TextStyle(
+  fontSize: 22.0,
+);

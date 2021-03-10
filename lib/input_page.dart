@@ -5,6 +5,7 @@ import 'reusable_card_content.dart';
 import 'constants.dart';
 import 'round_icon_button.dart';
 import 'results_page.dart';
+import 'calculate_container_button.dart';
 
 enum Gender { male, female }
 
@@ -237,8 +238,9 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
+          CalculateButton(
+            label: 'CALCULATE',
+            onTapButton: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -248,20 +250,6 @@ class _InputPageState extends State<InputPage> {
                 ),
               );
             },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    fontWeight: FontWeight.w900,
-                  ),
-                ),
-              ),
-              color: kBottomContainerColour,
-              width: double.infinity,
-              height: kBottomContainerHeight,
-            ),
           ),
         ],
       ),
